@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import { Container, createTheme, CssBaseline, ThemeProvider } from '@mui/material';
+import Copyright from './components/Copyright';
+import Message from './components/Message';
 
-function App() {
+const theme = createTheme();
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Container component='main' maxWidth='md'>
+        <CssBaseline />
+        <Message />
+      </Container>
+      <Copyright sx={{ mt: 8, mb: 4 }} />
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
